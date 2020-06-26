@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../style/style.css?rnd=132">
+  
+    <!--***** dos lineas de scripts para guardar imagen-->
+    <script type="text/javascript" src="../../js/html2canvas.js"></script>
+    <script type="text/javascript" src="../../js/html2canvas.min.js"></script>
+    <!--***** Fin de dos lineas de scripts para guardar imagen-->
+
+</head>
+
+<body>
+
+    <div id="contenedor">
+      <div style="position:absolute;top:0.000000px;left:0.000000px"><nobr><img height="1099.000000" width="872.000000" src ="bgimg/fondo.jpg"/></nobr></div>
+        <!--Empezar a agregar contenido-->
+        
+		<span style="position: absolute; top: 365px; left: 378px">
+			<textarea rows = "1" cols = "23" maxlength = "23" id="lyeo_p146res1"></textarea>
+		</span>
+      <span style="position: absolute; top: 402px; left: 625px">
+	  <textarea rows = "1" cols = "15" maxlength = "15" id="lyeo_p146res2"></textarea>
+		</span>
+      <span style="position: absolute; top: 401px; left: 164px">
+	  <textarea rows = "1" cols = "15" maxlength = "15" id="lyeo_p146res3"></textarea>
+		</span>
+      <span style="position: absolute; top: 663px; left: 395px">
+	  <textarea rows = "1" cols = "16" maxlength = "16" id="lyeo_p146res4"></textarea>
+		</span>
+      <span style="position: absolute; top: 572px; left: 396px">
+	  <textarea rows = "1" cols = "16" maxlength = "16" id="lyeo_p146res5"></textarea>
+		</span>
+      <span style="position: absolute; top: 485px; left: 395px">
+	  <textarea rows = "1" cols = "16" maxlength = "16" id="lyeo_p146res6"></textarea>
+		</span>
+      <span style="position: absolute; top: 443px; left: 289px">
+			<textarea rows = "1" cols = "11" maxlength = "11" id="lyeo_p146res7"></textarea>
+		</span>
+      
+      <span style="position: absolute; top: 805px; left: 336px">
+			<textarea rows = "1" cols = "2" maxlength = "11" id="lyeo_p146res8"></textarea>
+		</span>
+      <span style="position: absolute; top: 835px; left: 337px">
+	  <textarea rows = "1" cols = "2" maxlength = "11" id="lyeo_p146res9"></textarea>
+	   </span>
+      <span style="position: absolute; top: 884px; left: 338px">
+	  <textarea rows = "1" cols = "2" maxlength = "11" id="lyeo_p146res10"></textarea>
+	   </span>
+      <span style="position: absolute; top: 933px; left: 338px">
+	  <textarea rows = "1" cols = "2" maxlength = "11" id="lyeo_p146res11"></textarea>
+	   </span>
+       <span style="position: absolute; top: 988px; left: 337px">
+			<textarea rows = "1" cols = "2" maxlength = "11" id="lyeo_p146res12"></textarea>
+		</span>
+      
+       
+        <!--Fin del contenido-->
+           <!-- FORMULARIO AL FINAL DEL CONTENIDO -->
+
+		<form style="margin-top: 1030px;margin-left: 190px; position: absolute; z-index: 2;" id="myForm" action="../../send.php" method="post">
+			<textarea style="display:none;" id="myInput" name = "imagen" maxlength="10"></textarea>
+			<input type="button" onclick="save_data()" value="Guardar"  class="btn btn-primary">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="button" onclick="send_data(); loader(); return false" value="Enviar" class="btn btn-primary"> 
+			<input type="hidden" id="lyeo_regNA" name="lyeo_regNA">
+			<input type="hidden" id="lyeo_regGP" name="lyeo_regGP">
+			<input type="hidden" id="lyeo_regCA" name="lyeo_regCA">
+			<input type="hidden" id="lyeo_regND" name="lyeo_regND">
+			<input type="hidden" id="lyeo_regCD" name="lyeo_regCD">
+		</form>
+
+		<!-- FIN FORMULARIO AL FINAL DEL CONTENIDO -->
+
+		<div id="loader" style="display:none; margin-top: 1020px;margin-left: 190px; position: absolute; z-index: 2;">
+			<img src="../../img/carga.gif"  width="180px" height="65px">
+		</div>
+            
+    </div>       
+</body>
+<script type="text/javascript">
+	//Carga datos del registro
+    document.getElementById('lyeo_regNA').value = localStorage.getItem('lyeo_regNA');
+    document.getElementById('lyeo_regGP').value = localStorage.getItem('lyeo_regGP');
+    document.getElementById('lyeo_regCA').value = localStorage.getItem('lyeo_regCA');
+    document.getElementById('lyeo_regND').value = localStorage.getItem('lyeo_regND');
+    document.getElementById('lyeo_regCD').value = localStorage.getItem('lyeo_regCD');
+
+	 document.getElementById('lyeo_p146res1').value = localStorage.getItem('lyeo_p146res1');
+    document.getElementById('lyeo_p146res2').value = localStorage.getItem('lyeo_p146res2');
+    document.getElementById('lyeo_p146res3').value = localStorage.getItem('lyeo_p146res3');
+    document.getElementById('lyeo_p146res4').value = localStorage.getItem('lyeo_p146res4');
+    document.getElementById('lyeo_p146res5').value = localStorage.getItem('lyeo_p146res5');
+    document.getElementById('lyeo_p146res6').value = localStorage.getItem('lyeo_p146res6');
+    document.getElementById('lyeo_p146res7').value = localStorage.getItem('lyeo_p146res7');
+    document.getElementById('lyeo_p146res8').value = localStorage.getItem('lyeo_p146res8');
+    document.getElementById('lyeo_p146res9').value = localStorage.getItem('lyeo_p146res9');
+    document.getElementById('lyeo_p146res10').value = localStorage.getItem('lyeo_p146res10');
+    document.getElementById('lyeo_p146res11').value = localStorage.getItem('lyeo_p146res11');
+    document.getElementById('lyeo_p146res12').value = localStorage.getItem('lyeo_p146res12');
+    
+
+    function save_data(){
+        var lyeo_p146res1 = document.getElementById('lyeo_p146res1').value;
+        localStorage.setItem('lyeo_p146res1', lyeo_p146res1);
+        var lyeo_p146res2 = document.getElementById('lyeo_p146res2').value;
+        localStorage.setItem('lyeo_p146res2', lyeo_p146res2);
+        var lyeo_p146res3 = document.getElementById('lyeo_p146res3').value;
+        localStorage.setItem('lyeo_p146res3', lyeo_p146res3);
+        var lyeo_p146res4 = document.getElementById('lyeo_p146res4').value;
+        localStorage.setItem('lyeo_p146res4', lyeo_p146res4);
+        var lyeo_p146res5 = document.getElementById('lyeo_p146res5').value;
+        localStorage.setItem('lyeo_p146res5', lyeo_p146res5);
+        var lyeo_p146res6 = document.getElementById('lyeo_p146res6').value;
+        localStorage.setItem('lyeo_p146res6', lyeo_p146res6);
+        var lyeo_p146res7 = document.getElementById('lyeo_p146res7').value;
+        localStorage.setItem('lyeo_p146res7', lyeo_p146res7);
+        var lyeo_p146res8 = document.getElementById('lyeo_p146res8').value;
+        localStorage.setItem('lyeo_p146res8', lyeo_p146res8);
+        var lyeo_p146res9 = document.getElementById('lyeo_p146res9').value;
+        localStorage.setItem('lyeo_p146res9', lyeo_p146res9);
+        var lyeo_p146res10 = document.getElementById('lyeo_p146res10').value;
+        localStorage.setItem('lyeo_p146res10', lyeo_p146res10);
+        var lyeo_p146res11 = document.getElementById('lyeo_p146res11').value;
+        localStorage.setItem('lyeo_p146res11', lyeo_p146res11);
+        var lyeo_p146res12 = document.getElementById('lyeo_p146res12').value;
+        localStorage.setItem('lyeo_p146res12', lyeo_p146res12);
+        
+
+        alert("Guardado correctamente");
+    }
+
+    function send_data(){
+        pantallazo();
+        setTimeout(function(){document.getElementById("myForm").submit();}, 3000);
+    }
+
+    function pantallazo(){
+
+        html2canvas(document.body).then(canvas => {
+        	var dataURL = canvas.toDataURL();
+            console.log(dataURL);
+            document.getElementById("myInput").value = dataURL;
+            var canvas = document.createElement("canvas");
+            var ctx=canvas.getContext("2d");
+            var cw=canvas.width;
+            var ch=canvas.height;
+            var maxW=1280;
+            var maxH=1024;
+
+            var output = document.getElementById('myInput');
+	        var img = new Image;
+            img.onload = function() {
+                var iw=img.width;
+                var ih=img.height;
+                var scale=Math.min((maxW/iw),(maxH/ih));
+                var iwScaled=iw*scale;
+                var ihScaled=ih*scale;
+                canvas.width=iwScaled;
+                canvas.height=ihScaled;
+                ctx.drawImage(img,0,0,iwScaled,ihScaled);
+     	        output.value = canvas.toDataURL("../image/jpeg",1);
+            }
+            img.src = dataURL
+        });
+    }
+    
+    function loader(){
+		document.getElementById('loader').style.display = 'Block';
+ 
+	}
+
+</script>
+
+</html>

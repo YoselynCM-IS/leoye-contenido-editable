@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../style/style.css?rnd=132">
+  
+    <!--***** dos lineas de scripts para guardar imagen-->
+    <script type="text/javascript" src="../../js/html2canvas.js"></script>
+    <script type="text/javascript" src="../../js/html2canvas.min.js"></script>
+    <!--***** Fin de dos lineas de scripts para guardar imagen-->
+
+</head>
+
+<body>
+
+    <div id="contenedor">
+      <div style="position:absolute;top:0.000000px;left:0.000000px"><nobr><img height="1099.000000" width="872.000000" src ="bgimg/fondo.jpg"/></nobr></div>
+        <!--Empezar a agregar contenido-->
+        <span style="position: absolute; top: 667px; left: 274px">
+			<textarea rows = "1" cols = "2" maxlength = "2" id="lyeo_p10res1"></textarea>
+		</span>
+	  <span style="position: absolute; top: 707px; left: 274px">
+	  <textarea rows = "1" cols = "2" maxlength = "2" id="lyeo_p10res2"></textarea>
+	  </span>
+	  <span style="position: absolute; top: 748px; left: 274px">
+	  <textarea rows = "1" cols = "2" maxlength = "2" id="lyeo_p10res3"></textarea>
+	  </span>
+	  <span style="position: absolute; top: 798px; left: 274px">
+	  <textarea rows = "1" cols = "2" maxlength = "2" id="lyeo_p10res4"></textarea>
+	  </span>
+	  <span style="position: absolute; top: 841px; left: 274px">
+	  <textarea rows = "1" cols = "2" maxlength = "2" id="lyeo_p10res5"></textarea>
+	  </span>
+	  <span style="position: absolute; top: 878px; left: 274px">
+	  <textarea rows = "1" cols = "2" maxlength = "2" id="lyeo_p10res6"></textarea>
+	  </span>
+	  <span style="position: absolute; top: 939px; left: 274px">
+	  <textarea rows = "1" cols = "2" maxlength = "2" id="lyeo_p10res7"></textarea>
+	  </span>
+		<span style="position: absolute; top: 999px; left: 274px">
+			<textarea rows = "1" cols = "2" maxlength = "2" id="lyeo_p10res8"></textarea>
+		</span>
+		
+       <span style="position: absolute; top: 194px; left: 299px">
+			<input type="checkbox" id="lyeo_p10res9"><br>
+			<input type="checkbox" id="lyeo_p10res10"><br>
+			<input type="checkbox" id="lyeo_p10res11">
+		</span>
+        <span style="position: absolute; top: 457px; left: 300px">
+			<input type="checkbox" id="lyeo_p10res12"><br>
+			<input type="checkbox" id="lyeo_p10res13"><br>
+			<input type="checkbox" id="lyeo_p10res14">
+		</span>
+        <span style="position: absolute; top: 548px; left: 300px">
+			<input type="checkbox" id="lyeo_p10res15"><br>
+			<input type="checkbox" id="lyeo_p10res16"><br>
+			<input type="checkbox" id="lyeo_p10res17">
+		</span>
+       
+       <span style="position: absolute; top: 385px; left: 300px">
+			<input type="checkbox" id="lyeo_p10res18">
+		</span>
+       <span style="position: absolute; top: 285px; left: 300px">
+			<input type="checkbox" id="lyeo_p10res19">
+		</span>
+       <span style="position: absolute; top: 344px; left: 300px">
+			<input type="checkbox" id="lyeo_p10res20">
+		</span>
+        <!--Fin del contenido-->
+           <!-- FORMULARIO AL FINAL DEL CONTENIDO -->
+
+		<form style="margin-top: 1030px;margin-left: 190px; position: absolute; z-index: 2;" id="myForm" action="../../send.php" method="post">
+			<textarea style="display:none;" id="myInput" name = "imagen" maxlength="10"></textarea>
+			<input type="button" onclick="save_data()" value="Guardar"  class="btn btn-primary">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="button" onclick="send_data(); loader(); return false" value="Enviar" class="btn btn-primary"> 
+			<input type="hidden" id="lyeo_regNA" name="lyeo_regNA">
+			<input type="hidden" id="lyeo_regGP" name="lyeo_regGP">
+			<input type="hidden" id="lyeo_regCA" name="lyeo_regCA">
+			<input type="hidden" id="lyeo_regND" name="lyeo_regND">
+			<input type="hidden" id="lyeo_regCD" name="lyeo_regCD">
+		</form>
+
+		<!-- FIN FORMULARIO AL FINAL DEL CONTENIDO -->
+
+		<div id="loader" style="display:none; margin-top: 1020px;margin-left: 190px; position: absolute; z-index: 2;">
+			<img src="../../img/carga.gif"  width="180px" height="65px">
+		</div>
+            
+    </div>       
+</body>
+<script type="text/javascript">
+	//Carga datos del registro
+    document.getElementById('lyeo_regNA').value = localStorage.getItem('lyeo_regNA');
+    document.getElementById('lyeo_regGP').value = localStorage.getItem('lyeo_regGP');
+    document.getElementById('lyeo_regCA').value = localStorage.getItem('lyeo_regCA');
+    document.getElementById('lyeo_regND').value = localStorage.getItem('lyeo_regND');
+    document.getElementById('lyeo_regCD').value = localStorage.getItem('lyeo_regCD');
+
+	 document.getElementById('lyeo_p10res1').value = localStorage.getItem('lyeo_p10res1');
+    document.getElementById('lyeo_p10res2').value = localStorage.getItem('lyeo_p10res2');
+    document.getElementById('lyeo_p10res3').value = localStorage.getItem('lyeo_p10res3');
+    document.getElementById('lyeo_p10res4').value = localStorage.getItem('lyeo_p10res4');
+    document.getElementById('lyeo_p10res5').value = localStorage.getItem('lyeo_p10res5');
+    document.getElementById('lyeo_p10res6').value = localStorage.getItem('lyeo_p10res6');
+    document.getElementById('lyeo_p10res7').value = localStorage.getItem('lyeo_p10res7');
+    document.getElementById('lyeo_p10res8').value = localStorage.getItem('lyeo_p10res8');
+	document.getElementById('lyeo_p10res9').value = localStorage.getItem('lyeo_p10res9');
+     // ** INICIO ACTIVACION CHECKBOK ** //
+    if(document.getElementById('lyeo_p10res9').value == "1")
+        document.getElementById("lyeo_p10res9").checked = true; 
+
+    document.getElementById('lyeo_p10res10').value = localStorage.getItem('lyeo_p10res10');
+     // ** INICIO ACTIVACION CHECKBOK ** //
+    if(document.getElementById('lyeo_p10res10').value == "1")
+        document.getElementById("lyeo_p10res10").checked = true; 
+
+    document.getElementById('lyeo_p10res11').value = localStorage.getItem('lyeo_p10res11');
+     // ** INICIO ACTIVACION CHECKBOK ** //
+    if(document.getElementById('lyeo_p10res11').value == "1")
+        document.getElementById("lyeo_p10res11").checked = true; 
+
+    document.getElementById('lyeo_p10res12').value = localStorage.getItem('lyeo_p10res12');
+     // ** INICIO ACTIVACION CHECKBOK ** //
+    if(document.getElementById('lyeo_p10res12').value == "1")
+        document.getElementById("lyeo_p10res12").checked = true; 
+
+    document.getElementById('lyeo_p10res13').value = localStorage.getItem('lyeo_p10res13');
+     // ** INICIO ACTIVACION CHECKBOK ** //
+    if(document.getElementById('lyeo_p10res13').value == "1")
+        document.getElementById("lyeo_p10res13").checked = true; 
+
+    document.getElementById('lyeo_p10res14').value = localStorage.getItem('lyeo_p10res14');
+     // ** INICIO ACTIVACION CHECKBOK ** //
+    if(document.getElementById('lyeo_p10res14').value == "1")
+        document.getElementById("lyeo_p10res14").checked = true; 
+
+    document.getElementById('lyeo_p10res15').value = localStorage.getItem('lyeo_p10res15');
+     // ** INICIO ACTIVACION CHECKBOK ** //
+    if(document.getElementById('lyeo_p10res15').value == "1")
+        document.getElementById("lyeo_p10res15").checked = true; 
+
+    document.getElementById('lyeo_p10res16').value = localStorage.getItem('lyeo_p10res16');
+     // ** INICIO ACTIVACION CHECKBOK ** //
+    if(document.getElementById('lyeo_p10res16').value == "1")
+        document.getElementById("lyeo_p10res16").checked = true; 
+
+    document.getElementById('lyeo_p10res17').value = localStorage.getItem('lyeo_p10res17');
+     // ** INICIO ACTIVACION CHECKBOK ** //
+    if(document.getElementById('lyeo_p10res17').value == "1")
+        document.getElementById("lyeo_p10res17").checked = true; 
+
+    document.getElementById('lyeo_p10res18').value = localStorage.getItem('lyeo_p10res18');
+     // ** INICIO ACTIVACION CHECKBOK ** //
+    if(document.getElementById('lyeo_p10res18').value == "1")
+        document.getElementById("lyeo_p10res18").checked = true; 
+
+    document.getElementById('lyeo_p10res19').value = localStorage.getItem('lyeo_p10res19');
+    // ** INICIO ACTIVACION CHECKBOK ** //
+    //comprobar si el valor es 1 se selecciona 
+    if(document.getElementById('lyeo_p10res19').value == "1")
+        document.getElementById("lyeo_p10res19").checked = true; // si es uno se activa en checkbox
+    // ** FIN ACTIVACION CHECKBOK ** //
+
+    document.getElementById('lyeo_p10res20').value = localStorage.getItem('lyeo_p10res20');
+    // ** INICIO ACTIVACION CHECKBOK ** //
+    if(document.getElementById('lyeo_p10res20').value == "1")
+        document.getElementById("lyeo_p10res20").checked = true; 
+    // ** FIN ACTIVACION CHECKBOK ** //
+    
+
+    function save_data(){
+        var lyeo_p10res1 = document.getElementById('lyeo_p10res1').value;
+        localStorage.setItem('lyeo_p10res1', lyeo_p10res1);
+        var lyeo_p10res2 = document.getElementById('lyeo_p10res2').value;
+        localStorage.setItem('lyeo_p10res2', lyeo_p10res2);
+        var lyeo_p10res3 = document.getElementById('lyeo_p10res3').value;
+        localStorage.setItem('lyeo_p10res3', lyeo_p10res3);
+        var lyeo_p10res4 = document.getElementById('lyeo_p10res4').value;
+        localStorage.setItem('lyeo_p10res4', lyeo_p10res4);
+        var lyeo_p10res5 = document.getElementById('lyeo_p10res5').value;
+        localStorage.setItem('lyeo_p10res5', lyeo_p10res5);
+        var lyeo_p10res6 = document.getElementById('lyeo_p10res6').value;
+        localStorage.setItem('lyeo_p10res6', lyeo_p10res6);
+        var lyeo_p10res7 = document.getElementById('lyeo_p10res7').value;
+        localStorage.setItem('lyeo_p10res7', lyeo_p10res7);
+        var lyeo_p10res8 = document.getElementById('lyeo_p10res8').value;
+        localStorage.setItem('lyeo_p10res8', lyeo_p10res8);
+		//** INICIO PARA GUARDAR CHECKBOX **//
+        var isChecked = document.getElementById('lyeo_p10res9').checked;
+        if(isChecked){
+            var lyeo_p10res9 = "1";
+        }    
+        localStorage.setItem('lyeo_p10res9', lyeo_p10res9);
+        //** FIN PARA GUARDAR CHECKBOX **//
+
+        //** INICIO PARA GUARDAR CHECKBOX **//
+        var isChecked = document.getElementById('lyeo_p10res10').checked;
+        if(isChecked){
+            var lyeo_p10res10 = "1";
+        }    
+        localStorage.setItem('lyeo_p10res10', lyeo_p10res10);
+        //** FIN PARA GUARDAR CHECKBOX **//
+
+        //** INICIO PARA GUARDAR CHECKBOX **//
+        var isChecked = document.getElementById('lyeo_p10res11').checked;
+        if(isChecked){
+            var lyeo_p10res11 = "1";
+        }    
+        localStorage.setItem('lyeo_p10res11', lyeo_p10res11);
+        //** FIN PARA GUARDAR CHECKBOX **//
+
+        //** INICIO PARA GUARDAR CHECKBOX **//
+        var isChecked = document.getElementById('lyeo_p10res12').checked;
+        if(isChecked){
+            var lyeo_p10res12 = "1";
+        }    
+        localStorage.setItem('lyeo_p10res12', lyeo_p10res12);
+        //** FIN PARA GUARDAR CHECKBOX **//
+
+        //** INICIO PARA GUARDAR CHECKBOX **//
+        var isChecked = document.getElementById('lyeo_p10res13').checked;
+        if(isChecked){
+            var lyeo_p10res13 = "1";
+        }    
+        localStorage.setItem('lyeo_p10res13', lyeo_p10res13);
+        //** FIN PARA GUARDAR CHECKBOX **//
+
+        //** INICIO PARA GUARDAR CHECKBOX **//
+        var isChecked = document.getElementById('lyeo_p10res14').checked;
+        if(isChecked){
+            var lyeo_p10res14 = "1";
+        }    
+        localStorage.setItem('lyeo_p10res14', lyeo_p10res14);
+        //** FIN PARA GUARDAR CHECKBOX **//
+
+        //** INICIO PARA GUARDAR CHECKBOX **//
+        var isChecked = document.getElementById('lyeo_p10res15').checked;
+        if(isChecked){
+            var lyeo_p10res15 = "1";
+        }    
+        localStorage.setItem('lyeo_p10res15', lyeo_p10res15);
+        //** FIN PARA GUARDAR CHECKBOX **//
+
+        //** INICIO PARA GUARDAR CHECKBOX **//
+        var isChecked = document.getElementById('lyeo_p10res16').checked;
+        if(isChecked){
+            var lyeo_p10res16 = "1";
+        }    
+        localStorage.setItem('lyeo_p10res16', lyeo_p10res16);
+        //** FIN PARA GUARDAR CHECKBOX **//
+
+        //** INICIO PARA GUARDAR CHECKBOX **//
+        var isChecked = document.getElementById('lyeo_p10res17').checked;
+        if(isChecked){
+            var lyeo_p10res17 = "1";
+        }    
+        localStorage.setItem('lyeo_p10res17', lyeo_p10res17);
+        //** FIN PARA GUARDAR CHECKBOX **//
+
+        //** INICIO PARA GUARDAR CHECKBOX **//
+        var isChecked = document.getElementById('lyeo_p10res18').checked;
+        if(isChecked){
+            var lyeo_p10res18 = "1";
+        }    
+        localStorage.setItem('lyeo_p10res18', lyeo_p10res18);
+        //** FIN PARA GUARDAR CHECKBOX **//
+
+        //** INICIO PARA GUARDAR CHECKBOX **//
+        var isChecked = document.getElementById('lyeo_p10res19').checked;
+        if(isChecked){
+            var lyeo_p10res19 = "1";
+        }
+        localStorage.setItem('lyeo_p10res19', lyeo_p10res19);
+        //** FIN PARA GUARDAR CHECKBOX **//
+
+        //** INICIO PARA GUARDAR CHECKBOX **//
+        var isChecked = document.getElementById('lyeo_p10res20').checked;
+        if(isChecked){
+            var lyeo_p10res20 = "1";
+        }    
+        localStorage.setItem('lyeo_p10res20', lyeo_p10res20);
+        //** FIN PARA GUARDAR CHECKBOX **//
+        
+        alert("Guardado correctamente");
+    }
+
+    function send_data(){
+        pantallazo();
+        setTimeout(function(){document.getElementById("myForm").submit();}, 3000);
+    }
+
+    function pantallazo(){
+
+        html2canvas(document.body).then(canvas => {
+        	var dataURL = canvas.toDataURL();
+            console.log(dataURL);
+            document.getElementById("myInput").value = dataURL;
+            var canvas = document.createElement("canvas");
+            var ctx=canvas.getContext("2d");
+            var cw=canvas.width;
+            var ch=canvas.height;
+            var maxW=1280;
+            var maxH=1024;
+
+            var output = document.getElementById('myInput');
+	        var img = new Image;
+            img.onload = function() {
+                var iw=img.width;
+                var ih=img.height;
+                var scale=Math.min((maxW/iw),(maxH/ih));
+                var iwScaled=iw*scale;
+                var ihScaled=ih*scale;
+                canvas.width=iwScaled;
+                canvas.height=ihScaled;
+                ctx.drawImage(img,0,0,iwScaled,ihScaled);
+     	        output.value = canvas.toDataURL("../image/jpeg",1);
+            }
+            img.src = dataURL
+        });
+    }
+    
+    function loader(){
+		document.getElementById('loader').style.display = 'Block';
+ 
+	}
+
+</script>
+
+</html>
