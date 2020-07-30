@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../style/style.css?rnd=132">
+  
+    <!--***** dos lineas de scripts para guardar imagen-->
+    <script type="text/javascript" src="../../js/html2canvas.js"></script>
+    <script type="text/javascript" src="../../js/html2canvas.min.js"></script>
+    <!--***** Fin de dos lineas de scripts para guardar imagen-->
+
+</head>
+
+<body>
+
+    <div id="contenedor">
+      <div style="position:absolute;top:0.000000px;left:0.000000px"><nobr><img height="1099.000000" width="872.000000" src ="bgimg/fondo.jpg"/></nobr></div>
+        <!--Empezar a agregar contenido-->
+        
+		<span style="position: absolute; top: 227px; left: 152px">
+			<textarea rows = "1" cols = "60" maxlength = "60" id="lyeo_p75res1"></textarea><br>
+			<textarea rows = "1" cols = "60" maxlength = "60" id="lyeo_p75res2"></textarea>
+		</span>
+       <span style="position: absolute; top: 297px; left: 153px">
+			<textarea rows = "1" cols = "60" maxlength = "60" id="lyeo_p75res3"></textarea><br>
+			<textarea rows = "1" cols = "60" maxlength = "60" id="lyeo_p75res4"></textarea>
+		</span>
+      
+      <div id="lyeo_p75res5-zone" style="position: absolute; top: 90px; left: 125px; width: 481px; height: 80px;">
+			<img id="lyeo_p75res5" src="bgimg/01.jpg" height="82" width="480"> 
+		</div>
+     
+     <script type="text/javascript">
+                var lyeo_p75res5 = document.getElementById('lyeo_p75res5');
+                if (localStorage.getItem("Img_lyeo_p75res5") === null) {
+                    var dataImage = "bgimg/01.jpg"
+                }
+                else {
+                    var dataImage = localStorage.getItem('Img_lyeo_p75res5');
+                }
+                lyeo_p75res5.src = dataImage;
+                var previewZone = document.getElementById('lyeo_p75res5-zone');
+                previewZone.appendChild(lyeo_p75res5);
+            </script>
+            
+            <div id="divFileUpload1" style="position: absolute; top: 61px; left: 125px">
+                <input class="btn btn-primary" id="file-upload1" type="file" accept="image/*" />
+            </div>
+      
+      <div id="lyeo_p75res6-zone" style="position: absolute; top: 406px; left: 143px; width: 614px; height: 604px;">
+			<img id="lyeo_p75res6" src="bgimg/02.jpg" height="603" width="614"> 
+		</div>
+      
+      <script type="text/javascript">
+                var lyeo_p75res6 = document.getElementById('lyeo_p75res6');
+                if (localStorage.getItem("Img_lyeo_p75res6") === null) {
+                    var dataImage = "bgimg/02.jpg"
+                }
+                else {
+                    var dataImage = localStorage.getItem('Img_lyeo_p75res6');
+                }
+                lyeo_p75res6.src = dataImage;
+                var previewZone = document.getElementById('lyeo_p75res6-zone');
+                previewZone.appendChild(lyeo_p75res6);
+            </script>
+
+            <div id="divFileUpload2" style="position: absolute; top: 367px; left: 193px">
+                <input class="btn btn-primary" id="file-upload2" type="file" accept="image/*" />
+            </div>
+       
+       
+        <!--Fin del contenido-->
+           <!-- FORMULARIO AL FINAL DEL CONTENIDO -->
+
+		<form style="margin-top: 1070px;margin-left: 190px; position: absolute; z-index: 2;" id="myForm" action="../../send.php" method="post">
+			<textarea style="display:none;" id="myInput" name = "imagen" maxlength="10"></textarea>
+			<input type="button" onclick="save_data()" value="Guardar"  class="btn btn-primary">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="button" onclick="send_data(); loader(); return false" value="Enviar" class="btn btn-primary"> 
+			<input type="hidden" id="lyeo_regNA" name="lyeo_regNA">
+			<input type="hidden" id="lyeo_regGP" name="lyeo_regGP">
+			<input type="hidden" id="lyeo_regCA" name="lyeo_regCA">
+			<input type="hidden" id="lyeo_regND" name="lyeo_regND">
+			<input type="hidden" id="lyeo_regCD" name="lyeo_regCD">
+		</form>
+
+		<!-- FIN FORMULARIO AL FINAL DEL CONTENIDO -->
+
+		<div id="loader" style="display:none; margin-top: 1060px;margin-left: 190px; position: absolute; z-index: 2;">
+			<img src="../../img/carga.gif"  width="180px" height="65px">
+		</div>
+            
+    </div>       
+</body>
+<script>
+    function readFile(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+     
+            reader.onload = function (e) {
+                var lyeo_p75res5 = document.getElementById('lyeo_p75res5');
+                //e.target.result contents the base64 data from the image uploaded
+                lyeo_p75res5.src = e.target.result;
+                console.log(e.target.result);
+     
+                var previewZone = document.getElementById('lyeo_p75res5-zone');
+                previewZone.appendChild(lyeo_p75res5);
+            }
+    
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+     
+    var fileUpload = document.getElementById('file-upload1');
+    fileUpload.onchange = function (e) {
+        //document.getElementById('file-preview-zone').innerHTML = "";
+        readFile(e.srcElement);
+    }
+     
+    function readFile1(input) {
+        if (input.files && input.files[0]) {
+            var reader1 = new FileReader();
+     
+            reader1.onload = function (e) {
+                var lyeo_p75res6 = document.getElementById('lyeo_p75res6');
+                //e.target.result contents the base64 data from the image uploaded
+                lyeo_p75res6.src = e.target.result;
+                console.log(e.target.result);
+     
+                var previewZone2 = document.getElementById('lyeo_p75res6-zone');
+                previewZone2.appendChild(lyeo_p75res6);
+            }
+    
+            reader1.readAsDataURL(input.files[0]);
+        }
+    }
+     
+    var fileUpload1 = document.getElementById('file-upload2');
+    fileUpload1.onchange = function (e) {
+        //document.getElementById('file-preview-zone').innerHTML = "";
+        readFile1(e.srcElement);
+    }
+     
+</script>
+<script type="text/javascript">
+	//Carga datos del registro
+    document.getElementById('lyeo_regNA').value = localStorage.getItem('lyeo_regNA');
+    document.getElementById('lyeo_regGP').value = localStorage.getItem('lyeo_regGP');
+    document.getElementById('lyeo_regCA').value = localStorage.getItem('lyeo_regCA');
+    document.getElementById('lyeo_regND').value = localStorage.getItem('lyeo_regND');
+    document.getElementById('lyeo_regCD').value = localStorage.getItem('lyeo_regCD');
+	
+	 document.getElementById('lyeo_p75res1').value = localStorage.getItem('lyeo_p75res1');
+    document.getElementById('lyeo_p75res2').value = localStorage.getItem('lyeo_p75res2');
+    document.getElementById('lyeo_p75res3').value = localStorage.getItem('lyeo_p75res3');
+	document.getElementById('lyeo_p75res4').value = localStorage.getItem('lyeo_p75res4');
+
+	 
+    function save_data(){
+        //local storage
+        bannerImage = document.getElementById('lyeo_p75res5').src;
+        localStorage.setItem("Img_lyeo_p75res5", bannerImage);
+
+        bannerImage2 = document.getElementById('lyeo_p75res6').src;
+        localStorage.setItem("Img_lyeo_p75res6", bannerImage2);
+		
+		var lyeo_p75res1 = document.getElementById('lyeo_p75res1').value;
+        localStorage.setItem('lyeo_p75res1', lyeo_p75res1);
+        var lyeo_p75res2 = document.getElementById('lyeo_p75res2').value;
+        localStorage.setItem('lyeo_p75res2', lyeo_p75res2);
+        var lyeo_p75res3 = document.getElementById('lyeo_p75res3').value;
+        localStorage.setItem('lyeo_p75res3', lyeo_p75res3);
+		var lyeo_p75res4 = document.getElementById('lyeo_p75res4').value;
+        localStorage.setItem('lyeo_p75res4', lyeo_p75res4);
+
+        alert("Guardado correctamente");
+    }
+
+    function send_data(){
+        pantallazo();
+        setTimeout(function(){document.getElementById("myForm").submit();}, 3000);
+    }
+
+    function pantallazo(){
+
+        html2canvas(document.body).then(canvas => {
+        	var dataURL = canvas.toDataURL();
+            console.log(dataURL);
+            document.getElementById("myInput").value = dataURL;
+            var canvas = document.createElement("canvas");
+            var ctx=canvas.getContext("2d");
+            var cw=canvas.width;
+            var ch=canvas.height;
+            var maxW=1280;
+            var maxH=1024;
+
+            var output = document.getElementById('myInput');
+	        var img = new Image;
+            img.onload = function() {
+                var iw=img.width;
+                var ih=img.height;
+                var scale=Math.min((maxW/iw),(maxH/ih));
+                var iwScaled=iw*scale;
+                var ihScaled=ih*scale;
+                canvas.width=iwScaled;
+                canvas.height=ihScaled;
+                ctx.drawImage(img,0,0,iwScaled,ihScaled);
+     	        output.value = canvas.toDataURL("../image/jpeg",1);
+            }
+            img.src = dataURL
+        });
+    }
+    
+    function loader(){
+		document.getElementById('loader').style.display = 'Block';
+ 
+	}
+
+</script>
+
+</html>

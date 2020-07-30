@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../style/style.css?rnd=132">
+  
+    <!--***** dos lineas de scripts para guardar imagen-->
+    <script type="text/javascript" src="../../js/html2canvas.js"></script>
+    <script type="text/javascript" src="../../js/html2canvas.min.js"></script>
+    <!--***** Fin de dos lineas de scripts para guardar imagen-->
+
+</head>
+
+<body>
+
+    <div id="contenedor">
+      <div style="position:absolute;top:0.000000px;left:0.000000px"><nobr><img height="1099.000000" width="872.000000" src ="bgimg/fondo.jpg"/></nobr></div>
+        <!--Empezar a agregar contenido-->
+        
+		<span style="position: absolute; top: 246px; left: 155px">
+			<textarea rows = "1" cols = "60" maxlength = "60" id="lyeo_p107res1"></textarea><br>
+			<textarea rows = "1" cols = "60" maxlength = "60" id="lyeo_p107res2"></textarea><br>
+			<textarea rows = "1" cols = "60" maxlength = "60" id="lyeo_p107res3"></textarea><br>
+			<textarea rows = "1" cols = "60" maxlength = "60" id="lyeo_p107res4"></textarea><br>
+			<textarea rows = "1" cols = "60" maxlength = "60" id="lyeo_p107res5"></textarea><br>
+			<textarea rows = "1" cols = "60" maxlength = "60" id="lyeo_p107res6"></textarea><br>
+			<textarea rows = "1" cols = "60" maxlength = "60" id="lyeo_p107res7"></textarea><br>
+			<textarea rows = "1" cols = "60" maxlength = "60" id="lyeo_p107res8"></textarea>
+		</span>
+      <span style="position: absolute; top: 458px; left: 155px">
+			<textarea rows = "1" cols = "60" maxlength = "60" id="lyeo_p107res9"></textarea><br>
+			<textarea rows = "1" cols = "60" maxlength = "60" id="lyeo_p107res10"></textarea><br>
+			<textarea rows = "1" cols = "60" maxlength = "60" id="lyeo_p107res11"></textarea><br>
+			<textarea rows = "1" cols = "60" maxlength = "60" id="lyeo_p107res12"></textarea><br>
+			<textarea rows = "1" cols = "60" maxlength = "60" id="lyeo_p107res13"></textarea><br>
+			<textarea rows = "1" cols = "60" maxlength = "60" id="lyeo_p107res14"></textarea><br>
+	  <textarea rows = "1" cols = "60" maxlength = "60" id="lyeo_p107res15"></textarea>
+		</span>
+      <span style="position: absolute; top: 649px; left: 155px">
+			<textarea rows = "1" cols = "60" maxlength = "60" id="lyeo_p107res16"></textarea><br>
+			<textarea rows = "1" cols = "60" maxlength = "60" id="lyeo_p107res17"></textarea><br>
+			<textarea rows = "1" cols = "60" maxlength = "60" id="lyeo_p107res18"></textarea><br>
+			<textarea rows = "1" cols = "60" maxlength = "60" id="lyeo_p107res19"></textarea><br>
+			<textarea rows = "1" cols = "60" maxlength = "60" id="lyeo_p107res20"></textarea><br>
+			<textarea rows = "1" cols = "60" maxlength = "60" id="lyeo_p107res21"></textarea><br>
+	  <textarea rows = "1" cols = "60" maxlength = "60" id="lyeo_p107res22"></textarea>
+		</span>
+      <span style="position: absolute; top: 841px; left: 154px">
+			<textarea rows = "1" cols = "60" maxlength = "60" id="lyeo_p107res23"></textarea><br>
+			<textarea rows = "1" cols = "60" maxlength = "60" id="lyeo_p107res24"></textarea><br>
+			<textarea rows = "1" cols = "60" maxlength = "60" id="lyeo_p107res25"></textarea><br>
+			<textarea rows = "1" cols = "60" maxlength = "60" id="lyeo_p107res26"></textarea><br>
+			<textarea rows = "1" cols = "60" maxlength = "60" id="lyeo_p107res27"></textarea><br>
+			<textarea rows = "1" cols = "60" maxlength = "60" id="lyeo_p107res28"></textarea><br>
+			<textarea rows = "1" cols = "60" maxlength = "60" id="lyeo_p107res29"></textarea><br>
+			<textarea rows = "1" cols = "60" maxlength = "60" id="lyeo_p107res30"></textarea><br>
+			<textarea rows = "1" cols = "60" maxlength = "60" id="lyeo_p107res31"></textarea>
+		</span>
+       
+        <!--Fin del contenido-->
+           <!-- FORMULARIO AL FINAL DEL CONTENIDO -->
+
+		<form style="margin-top: 1070px;margin-left: 190px; position: absolute; z-index: 2;" id="myForm" action="../../send.php" method="post">
+			<textarea style="display:none;" id="myInput" name = "imagen" maxlength="10"></textarea>
+			<input type="button" onclick="save_data()" value="Guardar"  class="btn btn-primary">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="button" onclick="send_data(); loader(); return false" value="Enviar" class="btn btn-primary"> 
+			<input type="hidden" id="lyeo_regNA" name="lyeo_regNA">
+			<input type="hidden" id="lyeo_regGP" name="lyeo_regGP">
+			<input type="hidden" id="lyeo_regCA" name="lyeo_regCA">
+			<input type="hidden" id="lyeo_regND" name="lyeo_regND">
+			<input type="hidden" id="lyeo_regCD" name="lyeo_regCD">
+		</form>
+
+		<!-- FIN FORMULARIO AL FINAL DEL CONTENIDO -->
+
+		<div id="loader" style="display:none; margin-top: 1060px;margin-left: 190px; position: absolute; z-index: 2;">
+			<img src="../../img/carga.gif"  width="180px" height="65px">
+		</div>
+            
+    </div>       
+</body>
+<script type="text/javascript">
+	//Carga datos del registro
+    document.getElementById('lyeo_regNA').value = localStorage.getItem('lyeo_regNA');
+    document.getElementById('lyeo_regGP').value = localStorage.getItem('lyeo_regGP');
+    document.getElementById('lyeo_regCA').value = localStorage.getItem('lyeo_regCA');
+    document.getElementById('lyeo_regND').value = localStorage.getItem('lyeo_regND');
+    document.getElementById('lyeo_regCD').value = localStorage.getItem('lyeo_regCD');
+
+	 document.getElementById('lyeo_p107res1').value = localStorage.getItem('lyeo_p107res1');
+    document.getElementById('lyeo_p107res2').value = localStorage.getItem('lyeo_p107res2');
+    document.getElementById('lyeo_p107res3').value = localStorage.getItem('lyeo_p107res3');
+    document.getElementById('lyeo_p107res4').value = localStorage.getItem('lyeo_p107res4');
+    document.getElementById('lyeo_p107res5').value = localStorage.getItem('lyeo_p107res5');
+    document.getElementById('lyeo_p107res6').value = localStorage.getItem('lyeo_p107res6');
+    document.getElementById('lyeo_p107res7').value = localStorage.getItem('lyeo_p107res7');
+    document.getElementById('lyeo_p107res8').value = localStorage.getItem('lyeo_p107res8');
+    document.getElementById('lyeo_p107res9').value = localStorage.getItem('lyeo_p107res9');
+    document.getElementById('lyeo_p107res10').value = localStorage.getItem('lyeo_p107res10');
+    document.getElementById('lyeo_p107res11').value = localStorage.getItem('lyeo_p107res11');
+    document.getElementById('lyeo_p107res12').value = localStorage.getItem('lyeo_p107res12');
+    document.getElementById('lyeo_p107res13').value = localStorage.getItem('lyeo_p107res13');
+    document.getElementById('lyeo_p107res14').value = localStorage.getItem('lyeo_p107res14');
+    document.getElementById('lyeo_p107res15').value = localStorage.getItem('lyeo_p107res15');
+    document.getElementById('lyeo_p107res16').value = localStorage.getItem('lyeo_p107res16');
+    document.getElementById('lyeo_p107res17').value = localStorage.getItem('lyeo_p107res17');
+    document.getElementById('lyeo_p107res18').value = localStorage.getItem('lyeo_p107res18');
+    document.getElementById('lyeo_p107res19').value = localStorage.getItem('lyeo_p107res19');
+    document.getElementById('lyeo_p107res20').value = localStorage.getItem('lyeo_p107res20');
+    document.getElementById('lyeo_p107res21').value = localStorage.getItem('lyeo_p107res21');
+    document.getElementById('lyeo_p107res22').value = localStorage.getItem('lyeo_p107res22');
+    document.getElementById('lyeo_p107res23').value = localStorage.getItem('lyeo_p107res23');
+    document.getElementById('lyeo_p107res24').value = localStorage.getItem('lyeo_p107res24');
+    document.getElementById('lyeo_p107res25').value = localStorage.getItem('lyeo_p107res25');
+    document.getElementById('lyeo_p107res26').value = localStorage.getItem('lyeo_p107res26');
+    document.getElementById('lyeo_p107res27').value = localStorage.getItem('lyeo_p107res27');
+    document.getElementById('lyeo_p107res28').value = localStorage.getItem('lyeo_p107res28');
+    document.getElementById('lyeo_p107res29').value = localStorage.getItem('lyeo_p107res29');
+    document.getElementById('lyeo_p107res30').value = localStorage.getItem('lyeo_p107res30');
+    document.getElementById('lyeo_p107res31').value = localStorage.getItem('lyeo_p107res31');
+    
+
+    function save_data(){
+        var lyeo_p107res1 = document.getElementById('lyeo_p107res1').value;
+        localStorage.setItem('lyeo_p107res1', lyeo_p107res1);
+        var lyeo_p107res2 = document.getElementById('lyeo_p107res2').value;
+        localStorage.setItem('lyeo_p107res2', lyeo_p107res2);
+        var lyeo_p107res3 = document.getElementById('lyeo_p107res3').value;
+        localStorage.setItem('lyeo_p107res3', lyeo_p107res3);
+        var lyeo_p107res4 = document.getElementById('lyeo_p107res4').value;
+        localStorage.setItem('lyeo_p107res4', lyeo_p107res4);
+        var lyeo_p107res5 = document.getElementById('lyeo_p107res5').value;
+        localStorage.setItem('lyeo_p107res5', lyeo_p107res5);
+        var lyeo_p107res6 = document.getElementById('lyeo_p107res6').value;
+        localStorage.setItem('lyeo_p107res6', lyeo_p107res6);
+        var lyeo_p107res7 = document.getElementById('lyeo_p107res7').value;
+        localStorage.setItem('lyeo_p107res7', lyeo_p107res7);
+        var lyeo_p107res8 = document.getElementById('lyeo_p107res8').value;
+        localStorage.setItem('lyeo_p107res8', lyeo_p107res8);
+        var lyeo_p107res9 = document.getElementById('lyeo_p107res9').value;
+        localStorage.setItem('lyeo_p107res9', lyeo_p107res9);
+        var lyeo_p107res10 = document.getElementById('lyeo_p107res10').value;
+        localStorage.setItem('lyeo_p107res10', lyeo_p107res10);
+        var lyeo_p107res11 = document.getElementById('lyeo_p107res11').value;
+        localStorage.setItem('lyeo_p107res11', lyeo_p107res11);
+        var lyeo_p107res12 = document.getElementById('lyeo_p107res12').value;
+        localStorage.setItem('lyeo_p107res12', lyeo_p107res12);
+        var lyeo_p107res13 = document.getElementById('lyeo_p107res13').value;
+        localStorage.setItem('lyeo_p107res13', lyeo_p107res13);
+        var lyeo_p107res14 = document.getElementById('lyeo_p107res14').value;
+        localStorage.setItem('lyeo_p107res14', lyeo_p107res14);
+        var lyeo_p107res15 = document.getElementById('lyeo_p107res15').value;
+        localStorage.setItem('lyeo_p107res15', lyeo_p107res15);
+        var lyeo_p107res16 = document.getElementById('lyeo_p107res16').value;
+        localStorage.setItem('lyeo_p107res16', lyeo_p107res16);
+        var lyeo_p107res17 = document.getElementById('lyeo_p107res17').value;
+        localStorage.setItem('lyeo_p107res17', lyeo_p107res17);
+        var lyeo_p107res18 = document.getElementById('lyeo_p107res18').value;
+        localStorage.setItem('lyeo_p107res18', lyeo_p107res18);
+        var lyeo_p107res19 = document.getElementById('lyeo_p107res19').value;
+        localStorage.setItem('lyeo_p107res19', lyeo_p107res19);
+        var lyeo_p107res20 = document.getElementById('lyeo_p107res20').value;
+        localStorage.setItem('lyeo_p107res20', lyeo_p107res20);
+        var lyeo_p107res21 = document.getElementById('lyeo_p107res21').value;
+        localStorage.setItem('lyeo_p107res21', lyeo_p107res21);
+        var lyeo_p107res22 = document.getElementById('lyeo_p107res22').value;
+        localStorage.setItem('lyeo_p107res22', lyeo_p107res22);
+        var lyeo_p107res23 = document.getElementById('lyeo_p107res23').value;
+        localStorage.setItem('lyeo_p107res23', lyeo_p107res23);
+        var lyeo_p107res24 = document.getElementById('lyeo_p107res24').value;
+        localStorage.setItem('lyeo_p107res24', lyeo_p107res24);
+        var lyeo_p107res25 = document.getElementById('lyeo_p107res25').value;
+        localStorage.setItem('lyeo_p107res25', lyeo_p107res25);
+        var lyeo_p107res26 = document.getElementById('lyeo_p107res26').value;
+        localStorage.setItem('lyeo_p107res26', lyeo_p107res26);
+        var lyeo_p107res27 = document.getElementById('lyeo_p107res27').value;
+        localStorage.setItem('lyeo_p107res27', lyeo_p107res27);
+        var lyeo_p107res28 = document.getElementById('lyeo_p107res28').value;
+        localStorage.setItem('lyeo_p107res28', lyeo_p107res28);
+        var lyeo_p107res29 = document.getElementById('lyeo_p107res29').value;
+        localStorage.setItem('lyeo_p107res29', lyeo_p107res29);
+        var lyeo_p107res30 = document.getElementById('lyeo_p107res30').value;
+        localStorage.setItem('lyeo_p107res30', lyeo_p107res30);
+        var lyeo_p107res31 = document.getElementById('lyeo_p107res31').value;
+        localStorage.setItem('lyeo_p107res31', lyeo_p107res31);
+        
+
+        alert("Guardado correctamente");
+    }
+
+    function send_data(){
+        pantallazo();
+        setTimeout(function(){document.getElementById("myForm").submit();}, 3000);
+    }
+
+    function pantallazo(){
+
+        html2canvas(document.body).then(canvas => {
+        	var dataURL = canvas.toDataURL();
+            console.log(dataURL);
+            document.getElementById("myInput").value = dataURL;
+            var canvas = document.createElement("canvas");
+            var ctx=canvas.getContext("2d");
+            var cw=canvas.width;
+            var ch=canvas.height;
+            var maxW=1280;
+            var maxH=1024;
+
+            var output = document.getElementById('myInput');
+	        var img = new Image;
+            img.onload = function() {
+                var iw=img.width;
+                var ih=img.height;
+                var scale=Math.min((maxW/iw),(maxH/ih));
+                var iwScaled=iw*scale;
+                var ihScaled=ih*scale;
+                canvas.width=iwScaled;
+                canvas.height=ihScaled;
+                ctx.drawImage(img,0,0,iwScaled,ihScaled);
+     	        output.value = canvas.toDataURL("../image/jpeg",1);
+            }
+            img.src = dataURL
+        });
+    }
+    
+    function loader(){
+		document.getElementById('loader').style.display = 'Block';
+ 
+	}
+
+</script>
+
+</html>

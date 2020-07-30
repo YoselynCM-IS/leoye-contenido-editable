@@ -50,7 +50,6 @@ $mail->addStringAttachment($decode, "Actividad.png", "base64", "image/png");
 $mensaje .= '<br><img src="https://majesticeducacion.com.mx/nuevo/wp-content/uploads/2018/08/logo-header-majesticeducacion.png">';
  
 //Configuracion servidor mail
-
 $mail->From = "ebook@majesticeducationdigital.com"; //remitente
 $mail->FromName = "Majestic Education";//nombre remitente
 $mail->SMTPAuth = true;
@@ -59,7 +58,6 @@ $mail->Host = "mail.majesticeducationdigital.com"; // servidor smtp
 $mail->Port = 465; //puerto
 $mail->Username ='ebook@majesticeducationdigital.com'; //nombre usuario
 $mail->Password = '[;$&0?H_zuq#'; //contraseña
-
 
  
 //Agregar destinatario
